@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<link href="images/favicon.ico" rel="icon" type="image/x-icon" />
+		<title>Scribe Api</title>
+		<link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'/>
+		<link href="images/throbber.gif"  rel="throbber.gif" type="image/gif" />
+		<link href='css/hightlight.default.css' media='screen' rel='stylesheet' type='text/css'/>
+		<link href='css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
+		<link href='css/code.css' rel='stylesheet' type='text/css'/>
+		<link href='css/doc.css' rel='stylesheet' type='text/css'/>
+
+	</head>
+	<body>
+		<div class='doc'>
+		
+			<h1>Scribe Online API</h1>
+			<p>The Scribe Online REST API enables you to manage your Solutions. Before you write any code, you can use your Scribe Online credentials and organization ID to use the API with our <a href="reference.html" target="_blank">interactive API reference</a>.</p>
+
+			<h2>Authentication</h2>
+			<p>Scribe Online API requests must be authenticated using HTTP Basic Authentication. To authenticate, add a header parameter:</p>
+				<ul>
+				<li>The key is Authorization</li>
+				<li>The value is <Basic {email}:{password}, where {email} and {password} are your Scribe Online user account credentials.</li>
+				<li>The {email}:{password} section is base 64-encoded.</li>
+				</ul>
+			<p>See documentation for your client HTTP library (such as jQuery) for information about adding a header parameter for HTTP Basic Authentication.</p>
+			
+			<h2>Versions</h2>
+			<p>The current version of the API is v2. Specify the version at the base of the API URL path: </p>
+			<p class="Indent">https://api.scribesoft.com/v1/...</p>
+			
+			<h2>Organizations</h2>
+			<p>API requests are made in the context of an Organization, which is specified after the API version in the URL: </p>
+			<p class="Indent"> https://api.scribesoft.com/v1/orgs/{orgId}/...</p>
+			<p>The Organization ID is a number is found in Scribe Online, on the Edit Organization screen. If you have not joined an Organization, one is created for you when you first log in to  Scribe Online.</p>
+			
+			<h3>Starting/Stopping Solutions</h3>
+			<p>When you post a command to start or stop a Solution, if the Agent service associated with the Solution is stopped, the command waits up to 1 day for the service to be started before starting or stopping the Solution. Solutions that are in an invalid state for the command to execute are ignored. <p>
+			</p>For example:</p>
+			<ul>
+			<li>A start command is ignored if the Solution is in an incomplete state or is already running. </li>
+			<li>A stop command is ignored if the Solution is not running.  </li>
+			</ul>
+		</div>
+	</body>
+</html>
